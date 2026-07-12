@@ -1,0 +1,42 @@
+{
+  "agents/__init__.py": {
+    "mtime": 1783788845.4744067,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "envs/__init__.py": {
+    "mtime": 1783788845.1344068,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "envs/sim_tennis_env.py": {
+    "mtime": 1783788868.3874066,
+    "ast_hash": "d127b8b52e2348964fd51d45b91dc68c",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1783789828.6374006,
+    "ast_hash": "1a938867287304265dbcbc1d5967b57f",
+    "semantic_hash": ""
+  },
+  "scripts/memory_scan.py": {
+    "mtime": 1783789849.5174005,
+    "ast_hash": "239d965eb71af171cb0bc74787405a6c",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1783789900.4924002,
+    "ast_hash": "b931401f6db3ad16f9937df451e1c3a3",
+    "semantic_hash": ""
+  },
+  "notes/01-gymnasium-contract.md": {
+    "mtime": 1783789878.7144003,
+    "ast_hash": "fd6a493f4f1910616b6976526bdb9ac4",
+    "semantic_hash": ""
+  },
+  "notes/02-ram-scanning.md": {
+    "mtime": 1783789892.9474003,
+    "ast_hash": "0a1e8c40b82e3fc12add889687d66366",
+    "semantic_hash": ""
+  }
+}

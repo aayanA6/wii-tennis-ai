@@ -1,0 +1,539 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "agents/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_init",
+      "community": 6,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "envs/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "envs_init",
+      "community": 7,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "sim_tennis_env.py",
+      "file_type": "code",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env",
+      "community": 0,
+      "norm_label": "sim_tennis_env.py"
+    },
+    {
+      "label": "SimTennisEnv",
+      "file_type": "code",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env_simtennisenv",
+      "community": 0,
+      "norm_label": "simtennisenv"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env_simtennisenv_init",
+      "community": 0,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".reset()",
+      "file_type": "code",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env_simtennisenv_reset",
+      "community": 0,
+      "norm_label": ".reset()"
+    },
+    {
+      "label": ".step()",
+      "file_type": "code",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env_simtennisenv_step",
+      "community": 0,
+      "norm_label": ".step()"
+    },
+    {
+      "label": "Simplified singles-rally tennis simulator standing in for real Wii Sports Tennis",
+      "file_type": "rationale",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "envs_sim_tennis_env_rationale_14",
+      "community": 0,
+      "norm_label": "simplified singles-rally tennis simulator standing in for real wii sports tennis"
+    },
+    {
+      "label": "wii-tennis-ai",
+      "file_type": "code",
+      "type": "package",
+      "ecosystem": "python",
+      "source_file": "pyproject.toml",
+      "source_location": "L1",
+      "version": "0.1.0",
+      "_origin": "ast",
+      "id": "pkg_wii_tennis_ai",
+      "community": 8,
+      "norm_label": "wii-tennis-ai"
+    },
+    {
+      "label": "memory_scan.py",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_memory_scan",
+      "community": 1,
+      "norm_label": "memory_scan.py"
+    },
+    {
+      "label": "MemoryScanner",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_memoryscanner",
+      "community": 2,
+      "norm_label": "memoryscanner"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_memoryscanner_init",
+      "community": 2,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._read_region()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_memoryscanner_read_region",
+      "community": 2,
+      "norm_label": "._read_region()"
+    },
+    {
+      "label": ".rescan()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_memoryscanner_rescan",
+      "community": 2,
+      "norm_label": ".rescan()"
+    },
+    {
+      "label": ".candidates()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_memoryscanner_candidates",
+      "community": 1,
+      "norm_label": ".candidates()"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_run",
+      "community": 1,
+      "norm_label": "run()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_main",
+      "community": 1,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Interactive Cheat-Engine-style RAM scanner for a running native Dolphin instance",
+      "file_type": "rationale",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_rationale_1",
+      "community": 1,
+      "norm_label": "interactive cheat-engine-style ram scanner for a running native dolphin instance"
+    },
+    {
+      "label": "Narrows a set of candidate addresses over successive scans.      Takes a `read_b",
+      "file_type": "rationale",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "scripts_memory_scan_rationale_43",
+      "community": 2,
+      "norm_label": "narrows a set of candidate addresses over successive scans.      takes a `read_b"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 3,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "wii-tennis-ai",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_wii_tennis_ai",
+      "community": 3,
+      "norm_label": "wii-tennis-ai"
+    },
+    {
+      "label": "Status",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "readme_status",
+      "community": 3,
+      "norm_label": "status"
+    },
+    {
+      "label": "Setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "readme_setup",
+      "community": 3,
+      "norm_label": "setup"
+    },
+    {
+      "label": "01-gymnasium-contract.md",
+      "file_type": "document",
+      "source_file": "notes/01-gymnasium-contract.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_01_gymnasium_contract",
+      "community": 4,
+      "norm_label": "01-gymnasium-contract.md"
+    },
+    {
+      "label": "Step 1: the environment contract",
+      "file_type": "document",
+      "source_file": "notes/01-gymnasium-contract.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_01_gymnasium_contract_step_1_the_environment_contract",
+      "community": 4,
+      "norm_label": "step 1: the environment contract"
+    },
+    {
+      "label": "02-ram-scanning.md",
+      "file_type": "document",
+      "source_file": "notes/02-ram-scanning.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_02_ram_scanning",
+      "community": 5,
+      "norm_label": "02-ram-scanning.md"
+    },
+    {
+      "label": "Phase B groundwork: RAM address scanning",
+      "file_type": "document",
+      "source_file": "notes/02-ram-scanning.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_02_ram_scanning_phase_b_groundwork_ram_address_scanning",
+      "community": 5,
+      "norm_label": "phase b groundwork: ram address scanning"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "envs_sim_tennis_env",
+      "target": "envs_sim_tennis_env_simtennisenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "envs_sim_tennis_env_rationale_14",
+      "target": "envs_sim_tennis_env_simtennisenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "envs_sim_tennis_env_simtennisenv",
+      "target": "envs_sim_tennis_env_simtennisenv_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "envs_sim_tennis_env_simtennisenv",
+      "target": "envs_sim_tennis_env_simtennisenv_reset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "envs/sim_tennis_env.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "envs_sim_tennis_env_simtennisenv",
+      "target": "envs_sim_tennis_env_simtennisenv_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "scripts_memory_scan",
+      "target": "scripts_memory_scan_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_memory_scan",
+      "target": "scripts_memory_scan_memoryscanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "scripts_memory_scan",
+      "target": "scripts_memory_scan_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_rationale_1",
+      "target": "scripts_memory_scan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner",
+      "target": "scripts_memory_scan_memoryscanner_candidates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner",
+      "target": "scripts_memory_scan_memoryscanner_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner",
+      "target": "scripts_memory_scan_memoryscanner_read_region",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner",
+      "target": "scripts_memory_scan_memoryscanner_rescan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_rationale_43",
+      "target": "scripts_memory_scan_memoryscanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_run",
+      "target": "scripts_memory_scan_memoryscanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner_init",
+      "target": "scripts_memory_scan_memoryscanner_read_region",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_memoryscanner_rescan",
+      "target": "scripts_memory_scan_memoryscanner_read_region",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_run",
+      "target": "scripts_memory_scan_memoryscanner_rescan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_run",
+      "target": "scripts_memory_scan_memoryscanner_candidates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/memory_scan.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "scripts_memory_scan_main",
+      "target": "scripts_memory_scan_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_wii_tennis_ai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "readme_wii_tennis_ai",
+      "target": "readme_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "readme_wii_tennis_ai",
+      "target": "readme_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/01-gymnasium-contract.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "notes_01_gymnasium_contract",
+      "target": "notes_01_gymnasium_contract_step_1_the_environment_contract",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/02-ram-scanning.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "notes_02_ram_scanning",
+      "target": "notes_02_ram_scanning_phase_b_groundwork_ram_address_scanning",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
