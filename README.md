@@ -10,7 +10,7 @@ build order.
 **Phase A (simulator + hand-rolled RL):**
 - [x] Step 1: repo skeleton + dummy `SimTennisEnv` (gymnasium contract)
 - [x] Step 2: real ball physics + random-agent baseline (random hit rate ~51%)
-- [ ] Step 3: rule-based CPU opponent
+- [x] Step 3: rule-based CPU opponent (random-vs-CPU win rate ~18%)
 - [ ] Step 4: PyTorch `PolicyNetwork`
 - [ ] Step 5: rollout collection + Monte Carlo returns
 - [ ] Step 6: REINFORCE training loop (milestone: beats random baseline)
