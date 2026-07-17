@@ -111,3 +111,59 @@ Split the problem instead of finding everything via blind RAM scanning:
   controls, so the standard "hold still -> unchanged; move one direction
   -> increased/decreased" technique applies cleanly without any of
   score's rule-governed-event or low-entropy problems.
+
+## 2026-07-16 session: paddle/ball scan attempt, no address found, pivoting to Phase A
+
+The float32 assumption above turned out to be necessary but not
+sufficient -- scanning still didn't converge on a real address this
+session. Two dead ends, one useful new tool, and a decision to stop
+digging and switch to Phase A for now.
+
+**Dead end 1 -- scanned the menu, not gameplay:** first live scan session
+was run entirely from the guest-select menu screen (character select),
+not an actual match. Narrowed cleanly down to 18 candidates including a
+convincing-looking repeating 3-entity struct (stride 0x9DC0 across three
+blocks) -- but this was menu cursor/selection state, not paddle/ball
+position, and doesn't carry over to gameplay. Lesson: confirm you're
+actually mid-rally before trusting scan output, not just "in the game."
+
+**Dead end 2 -- found a real repeating structure, it was audio:** after
+resetting and scanning during an actual point, narrowing (hold-still
+`u` / swing `c` cycles) again converged on a small candidate set,
+including a repeating 2-entity struct at 0x80435EDC/0x8043FC9C-ish
+addresses (stride 0x9DC0 -- interestingly the same stride as the menu
+dead end, suggesting that stride might just be a structural constant of
+this game's entity table rather than meaningful). Dumping the raw
+neighborhood (`0x8042B000`-`0x8042B500`) showed a smoothly oscillating
+waveform of small integers for hundreds of bytes straight -- textbook PCM
+audio sample data, not position. Root cause: sound effects (swing/hit)
+fire in sync with player input, so an audio buffer that's "busy" exactly
+when you act and "quiet" at rest produces the identical changed/
+unchanged signature real position would. This is a scanning-technique
+trap specific to any game where actions trigger sounds, not something
+that shows up in the abstract description of the technique.
+
+**New tool -- `scripts/auto_scan.py`:** built to remove human latency
+from the filter loop. `memory_scan.py` needs the player to act, then
+switch to the terminal and type `u`/`c`/etc; that gap adds slop that lets
+false positives survive. `auto_scan.py` uses `evdev` to watch the
+keyboard/touchpad/trackpoint devices (`/dev/input/event3`, `event12`,
+`event13` on this machine -- re-detect if devices change) directly and
+applies the changed/unchanged filter itself the instant it sees activity
+or a still period, so filter timing lines up with real input. Confirmed
+working: one run went from a 6.29M-address baseline down to a single
+candidate before the (likely-still-audio) candidate got eliminated on
+the next swing. Needs Dolphin already hooked; run with
+`.venv/bin/python scripts/auto_scan.py`.
+
+**Decision:** no community-published RAM map exists for Wii Sports
+Tennis to shortcut this (checked GameHacking.org, WiiRD forums,
+`kiwi515/ogws_info` -- the best lead, a solid reverse-engineering project
+for Wii Sports internals, but it only documents Bowling/Golf/Boxing scene
+classes and save-file structures; Tennis never got a live-gameplay scene
+class written up). Rather than keep grinding blind scans this session,
+pausing Phase B here and switching to Phase A (Step 3: rule-based CPU
+opponent). `auto_scan.py` is ready to pick back up with next time --
+likely next move is excluding the known audio region and trying
+sustained one-direction holds (proportional, low-frequency change)
+instead of quick taps, to better separate real position from audio.

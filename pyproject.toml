@@ -7,4 +7,5 @@ dependencies = [
     "torch",
     "gymnasium",
     "dolphin-memory-engine",
+    "evdev",
 ]
