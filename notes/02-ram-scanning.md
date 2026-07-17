@@ -34,3 +34,80 @@ sandboxed Dolphin cannot be attached to. Fix: install the native AUR package
 waiting on the native Dolphin build to finish installing. Once addresses for
 score / ball position / paddle position are found, they get recorded in a new
 `envs/memory_map.py` (doesn't exist yet).
+
+## 2026-07-13 session: live scanning attempt, score abandoned for now
+
+Got the native Dolphin build attached and ran the scanner against a live
+Wii Sports Tennis match. Score-hunting ate the whole session and was
+ultimately set aside in favor of a plan split (see "Plan going forward"
+below). Findings, in case we revisit:
+
+**Environment gotchas (will recur every session, not one-time fixes):**
+- `ptrace_scope` resets to `1` (restricted) on every reboot -- memory reads
+  fail with `RuntimeError: Could not read memory at ...` until you run
+  `sudo sysctl kernel.yama.ptrace_scope=0` again. Not persistent by design;
+  redo it each session.
+- The dolphin-memory-engine hook can go stale mid-session (observed after
+  Dolphin briefly showed the game list instead of gameplay -- reloading a
+  game likely reallocates the MEM1 host buffer, invalidating the old
+  hook's cached pointer). Symptom: a long-running scanner process starts
+  failing with the same "Could not read memory" error even though Dolphin
+  is fine and a *fresh* `dme.hook()` call works immediately. Fix: kill and
+  restart the scanner process (re-hook) any time reads start failing.
+- When driving `memory_scan.py` interactively from a script/agent rather
+  than a human at a terminal: don't `pkill -f "memory_scan.py"` from
+  within a shell command that *also* contains the literal string
+  `memory_scan.py` later on (e.g. the next line that launches it) --
+  `pkill -f` matches the invoking shell's own command text and kills
+  itself before it reaches the launch line. Kill by exact PID instead.
+
+**Score encoding (byte-level, in MEM1):**
+- The displayed score text ("15", "30", "40", "Deuce", "Advantage") is
+  *not* the literal stored value. Confirmed by direct test: filtered
+  candidates for "equals 15" then "equals 30" using the correct dtype
+  (`uint8`) and got zero survivors both times. The raw byte is a small
+  point-index (0/1/2/3/...) that the game maps to display text, not the
+  literal number.
+- Deuce/advantage make the index model murkier still -- in-game evidence
+  was inconsistent about whether a player's raw index keeps incrementing
+  past 3 through advantage exchanges or whether advantage is tracked as a
+  separate shared flag. Multiple `unchanged`/`increased` filter chains
+  that looked like they were converging (down to single digits of
+  candidates) unexpectedly zeroed out right at deuce/advantage/game-end
+  transitions. Never got a fully confirmed address.
+- Root difficulty: score is a *low-entropy* value (~5 possible states) that
+  only changes on a rare, rule-governed event (a scored point). Both
+  properties are close to worst-case for unknown-initial-value scanning --
+  low entropy means lots of coincidental false-positive matches survive
+  each filter, and rare/rule-bound changes mean every mistake (a missed
+  intermediate state, a misjudged deuce transition) costs a full round
+  with no way to double-check except after the fact.
+
+**Screen-reading side effort (this actually worked well):**
+- Built `scripts/read_score.py`: `grim` screenshot -> crop the on-screen
+  "XX - XX" region -> grayscale threshold -> upscale 8x -> `ImageFilter.
+  MaxFilter(5)` to fill in the hollow-outline digit font -> `pytesseract`
+  with `--psm 7` and a digit/dash whitelist. Works, but not perfectly:
+  occasionally misreads a digit (saw "3" -> "2" and a stray extra digit
+  once) -- worth a visual double-check via a saved crop when a reading
+  looks like an invalid tennis score.
+- Important environment note: this machine runs Hyprland (Wayland). `mss`
+  and `xwd`/plain X11 grabs return solid black (Wayland compositors block
+  arbitrary X11 screen capture for security) even though `DISPLAY` is set
+  and `xdpyinfo` works. `grim` (wlroots screenshot tool) is what actually
+  works here. Don't waste time on X11 grab tools on this box.
+
+## Plan going forward
+
+Split the problem instead of finding everything via blind RAM scanning:
+- **Score / reward signal / episode boundaries:** use `scripts/
+  read_score.py` (OCR) directly as the source of truth. It's a low-
+  frequency, discrete signal (once per point) -- exactly what OCR is good
+  at, and sidesteps the low-entropy-byte problem entirely.
+- **Ball / paddle position (and anything else read at observation
+  frequency):** use RAM scanning, but expect this to go *better* than
+  score did, not worse -- these are float32s (high entropy, few
+  coincidental matches) that the player directly and continuously
+  controls, so the standard "hold still -> unchanged; move one direction
+  -> increased/decreased" technique applies cleanly without any of
+  score's rule-governed-event or low-entropy problems.
